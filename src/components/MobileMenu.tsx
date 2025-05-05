@@ -30,7 +30,7 @@ export function MobileMenu({ links }: HeaderProps) {
                     <Button variant="outline">Menu</Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-56">
-                    <DropdownMenuLabel>Berbagi Bites Jogja</DropdownMenuLabel>
+                    <DropdownMenuLabel>BBJ Donate</DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     {links.map((e) => {
                         return (
