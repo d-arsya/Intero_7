@@ -65,21 +65,20 @@ export function Footer() {
                         <Link className='flex' href="https://maps.app.goo.gl/vHHZVQ4ymYhW1JhX6">
                             <MapPin className='w-20' />
                             <span className='w-full'>
-                                Blk. A, Jl. Podocarpus II Bulaksumur, Sagan, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281
-
+                                Gedung TILC, Blimbing Sari, Caturtunggal Depok Sleman Yogyakarta, Indonesia. 55281
                             </span>
                         </Link>
-                        <Link className='flex' href="https://wa.me/628986950700">
+                        <Link className='flex' href="https://wa.me/628000000700">
                             <Phone className='w-20' />
                             <span className='w-full'>
-                                +62 898 695 0700
+                                +62 800 000 0700
 
                             </span>
                         </Link>
                         <Link className='flex' href="mailto:berbagibitesjogja@gmail.com">
                             <Mail className='w-20' />
                             <span className='w-full'>
-                                berbagibitesjogja@gmail.com
+                                berbagibitesjogja@mail.ugm.ac.id
                             </span>
                         </Link>
 
