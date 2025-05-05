@@ -8,7 +8,7 @@ export function Footer() {
                 <div className='md:max-w-1/4'>
                     <Link href="/" className='flex items-center gap-x-2'>
                         <Image src='/plain-logo-white.png' width="40" height="40" alt='bbj-logo' className='inline'></Image>
-                        <span className='font-bold text-2xl'>Berbagi Bites Jogja</span>
+                        <span className='font-bold text-2xl'>BBJ Donate</span>
                     </Link>
                     <p className='mt-2 leading-8'>Inisiatif nonprofit yang berfokus pada penyelamatan dan redistribusi makanan di seluruh Yogyakarta.</p>
                     <div className='flex mt-3 gap-x-2 text-slate-400 text-xs font-thin'>
@@ -86,7 +86,7 @@ export function Footer() {
                 </div>
             </nav>
             <div className="flex md:flex-row flex-col justify-between items-center mt-12 gap-y-6">
-                <span>© 2025 Berbagi Bites Jogja. Semua hak dilindungi.</span>
+                <span>© 2025 BBJ Donate. Semua hak dilindungi.</span>
                 <nav className="flex justify-between gap-x-4">
                     <Link href="/">Kebijakan Privasi</Link>
                     <Link href="/">Syarat & Ketentuan</Link>
