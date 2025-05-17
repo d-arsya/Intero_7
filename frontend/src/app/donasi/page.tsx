@@ -1,6 +1,5 @@
 "use client";
-import { DropdownMenu } from "@radix-ui/react-dropdown-menu";
-import { ArrowLeft, Check, Divide, Info, InfoIcon } from "lucide-react";
+import { ArrowLeft, Check, Info } from "lucide-react";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -46,21 +45,19 @@ export default function PageMakanan() {
           <div className="flex flex-row gap-x-2 h-[52px] font-medium mt-5">
             <button
               onClick={() => setIsShowingDonasiMakanan(false)}
-              className={`${
-                isShowingDonasiMakanan
-                  ? "border border-[#F9AF18] bg-white"
-                  : "bg-[#F9AF18] text-white"
-              } rounded-[8px] flex-1 hover:opacity-90`}
+              className={`${isShowingDonasiMakanan
+                ? "border border-[#F9AF18] bg-white"
+                : "bg-[#F9AF18] text-white"
+                } rounded-[8px] flex-1 hover:opacity-90`}
             >
               Dana
             </button>
             <button
               onClick={() => setIsShowingDonasiMakanan(true)}
-              className={`${
-                isShowingDonasiMakanan
-                  ? "bg-[#F9AF18] text-white"
-                  : "border border-[#F9AF18] bg-white"
-              } flex-1 bg-[#F9AF18] rounded-[8px] hover:opacity-90`}
+              className={`${isShowingDonasiMakanan
+                ? "bg-[#F9AF18] text-white"
+                : "border border-[#F9AF18] bg-white"
+                } flex-1 bg-[#F9AF18] rounded-[8px] hover:opacity-90`}
             >
               Makanan
             </button>
@@ -379,10 +376,10 @@ export default function PageMakanan() {
               {/* quote? */}
               <div className="w-full h-[208px] flex flex-col bg-[#F5B041] mt-6 p-6 rounded-[12px]">
                 <p className="text-sm text-[#344C36]">
-                  "Setiap donasi makanan yang Anda berikan tidak hanya <br />
+                  &quot;Setiap donasi makanan yang Anda berikan tidak hanya <br />
                   menyelamatkan makanan dari pembuangan, tetapi juga <br />
                   memberikan harapan dan bantuan nyata bagi mereka <br />
-                  yang membutuhkan."
+                  yang membutuhkan.&quot;
                 </p>
 
                 <div className="flex flex-row mt-auto">
