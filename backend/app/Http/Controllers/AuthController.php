@@ -93,4 +93,87 @@ class AuthController extends Controller
             return ResponseHelper::send($th->getMessage(), null, 400);
         }
     }
+    /**
+     * @OA\Post(
+     *     path="/login",
+     *     summary="Login user and get authentication token",
+     *     tags={"Auth"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             required={"email", "password"},
+     *             @OA\Property(
+     *                 property="email",
+     *                 type="string",
+     *                 format="email",
+     *                 example="johndoe@example.com"
+     *             ),
+     *             @OA\Property(
+     *                 property="password",
+     *                 type="string",
+     *                 format="password",
+     *                 example="password123"
+     *             ),
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Login success",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="success", type="boolean", example=true),
+     *             @OA\Property(property="code", type="integer", example=200),
+     *             @OA\Property(property="message", type="string", example="Login success"),
+     *             @OA\Property(property="data", type="object",
+     *                 @OA\Property(property="token", type="string", example="1|abc123def456ghi789")
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Validation Error",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="success", type="boolean", example=false),
+     *             @OA\Property(property="code", type="integer", example=400),
+     *             @OA\Property(property="message", type="string", example="Your input is invalid"),
+     *             @OA\Property(
+     *                 property="data",
+     *                 type="object",
+     *                 example={"email": {"The email field is required."}, "password": {"The password field is required."}}
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Login failed",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="success", type="boolean", example=false),
+     *             @OA\Property(property="code", type="integer", example=404),
+     *             @OA\Property(property="message", type="string", example="Login failed"),
+     *             @OA\Property(property="data", type="object", nullable=true)
+     *         )
+     *     )
+     * )
+     */
+
+    public function login(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        if ($validator->fails()) {
+            return ResponseHelper::send('Your input is invalid', $validator->messages(), 400);
+        }
+
+        $user = User::where('email', $request->email)->first();
+        if ($user && Hash::check($request->password, $user->password)) {
+            $data = [
+                "token" => $user->createToken($request['email'])->plainTextToken
+            ];
+            return ResponseHelper::send('Login success', $data, 200);
+        } else {
+            return ResponseHelper::send('Login failed', null, 404);
+        }
+    }
 }

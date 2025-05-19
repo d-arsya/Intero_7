@@ -5,7 +5,7 @@ return [
     'documentations' => [
         'default' => [
             'api' => [
-                'title' => 'Commute Quest BE Documentation',
+                'title' => 'Interoperabilitas BE Documentation',
             ],
 
             'routes' => [
