@@ -35,10 +35,7 @@ export const metadata: Metadata = {
 };
 
 const guestLinks = [
-  { label: 'Tentang Kami', href: '#about' },
-  { label: 'Program', href: '#program' },
-  { label: 'Dampak', href: '#dampak' },
-  { label: 'Bergabung', href: '#gabung' },
+  { label: 'Riwayat', href: '#riwayat' },
   { label: 'Kontak', href: '#kontak' },
 ];
 
