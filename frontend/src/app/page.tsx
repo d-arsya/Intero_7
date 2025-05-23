@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <>
@@ -13,7 +15,9 @@ export default function Home() {
             <label htmlFor="password" className="text-[20px] font-semibold text-[#1F2937] mt-8 block">Password</label>
             <input type="password" name="password" id="password" className="w-full h-[50px] border border-[#ADAEBC] rounded-[8px] px-2 mt-4" placeholder="Masukan Password" />
 
-            <input type="submit" value="Login" className="w-full h-[94px] bg-[#F5B041] rounded-[8px] mt-auto text-white text-[32px] font-medium" />
+            <Link href={"/register"} className="ml-auto mr-2 mt-5 text-[#F5B041] font-semibold hover:opacity-75">Register</Link>
+
+            <input type="submit" value="Login" className="w-full h-[94px] bg-[#F5B041] hover:opacity-80 active:opacity-70 rounded-[8px] mt-auto text-white text-[32px] font-medium" />
           </form>
         </div>
       </div>
