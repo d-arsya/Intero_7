@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Register() {
     return (
         // container
-        <div className="h-screen flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center">
             <h1 className="text-[36px] font-bold text-[#1F2937]">Register</h1>
             <div className="w-[315px] border-t-4 border-[#F5B041] mt-4"></div>
 
