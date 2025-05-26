@@ -263,6 +263,166 @@
                     }
                 }
             }
+        },
+        "/foundations": {
+            "get": {
+                "tags": [
+                    "Foundation"
+                ],
+                "summary": "Get list of yayasan",
+                "description": "Returns a list of yayasan with their details",
+                "operationId": "getFoundation",
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success retrieve all foundation data"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Yayasan La Tahzan"
+                                                    },
+                                                    "latitude": {
+                                                        "type": "string",
+                                                        "example": "-7.12345"
+                                                    },
+                                                    "longitude": {
+                                                        "type": "string",
+                                                        "example": "110.12345"
+                                                    },
+                                                    "address": {
+                                                        "type": "string",
+                                                        "example": "Jl. Merdeka No. 1, Jakarta"
+                                                    },
+                                                    "phone": {
+                                                        "type": "string",
+                                                        "example": "+6281234567890"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 401
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorized"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": null
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/hotels": {
+            "get": {
+                "tags": [
+                    "Hotels"
+                ],
+                "summary": "Get all hotel data",
+                "operationId": "54cf891af66ecd8bfd0a6d26b1cc8fc8",
+                "responses": {
+                    "200": {
+                        "description": "Success retrieve all hotel data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success retrieve all hotel data"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "latitude": {
+                                                        "type": "string",
+                                                        "example": "-7.798264"
+                                                    },
+                                                    "longitude": {
+                                                        "type": "string",
+                                                        "example": "110.392555"
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "gatau"
+                                                    },
+                                                    "address": {
+                                                        "type": "string",
+                                                        "example": "Jl. Ipda Tut Harsono No.24 ..."
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
         }
     },
     "components": {
@@ -278,6 +438,14 @@
         {
             "name": "Auth",
             "description": "Auth"
+        },
+        {
+            "name": "Foundation",
+            "description": "Foundation"
+        },
+        {
+            "name": "Hotels",
+            "description": "Hotels"
         }
     ]
 }
