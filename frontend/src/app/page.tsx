@@ -24,7 +24,7 @@ export default function Login() {
       console.log("API Response:", JSON.stringify(data, null, 2));
 
       if (response.ok && data.data?.token) {
-        document.cookie = `token=${data.data.token}; path=/; max-age=86400; SameSite=Strict`;
+        document.cookie = `token=${data.data.token}; path=/; max-age=86400; SameSite = Strict`;
         console.log("Cookie set:", document.cookie);
         window.location.href = "/donasi";
       } else {
