@@ -139,37 +139,6 @@ export default function PageMakanan() {
                     name="alamat-pengambilan"
                   ></textarea>
                 </div>
-                {/* container two input */}
-                <div className="flex flex-row gap-x-6">
-                  {/* nama lengkap */}
-                  <div className="flex flex-col flex-1">
-                    <div className="flex flex-col gap-y-2 mt-4">
-                      <label htmlFor="nama-lengkap" className="font-medium">
-                        Nama Lengkap
-                      </label>
-                      <input
-                        type="text"
-                        name="nama-lengkap"
-                        id="nama-lengkap"
-                        className="w-full bg-white border border-[#D1D5DB] h-[50px] rounded-[8px] resize-none p-2"
-                      ></input>
-                    </div>
-                  </div>
-                  <div className="flex flex-col flex-1">
-                    {/* nomor telepon */}
-                    <div className="flex flex-col gap-y-2 mt-4">
-                      <label htmlFor="nomor-telpon" className="font-medium">
-                        Nomor Telepon
-                      </label>
-                      <input
-                        type="text" // gua bingung type nya apaan dah
-                        name="nomor-telpon"
-                        id="nomor-telpon"
-                        className="w-full bg-white border border-[#D1D5DB] h-[50px] rounded-[8px] resize-none p-2"
-                      ></input>
-                    </div>
-                  </div>
-                </div>
                 {/* catatan tambahan opsional */}
                 <div className="flex flex-col gap-y-2 mt-4">
                   <label htmlFor="catatan-tambahan" className="font-medium">
