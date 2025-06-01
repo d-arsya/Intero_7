@@ -74,11 +74,10 @@ export default function PageYayasan() {
       });
 
       const result = await response.json();
-
       if (!response.ok) {
         throw new Error(result.message || "Gagal mengirim data.");
       }
-      window.location.href = `/riwayat/${id}/status`;
+      window.location.href = `/riwayat/${result.data.id}/status`;
 
     } catch (err) {
       alert("Gagal mengirim data: " + err);
