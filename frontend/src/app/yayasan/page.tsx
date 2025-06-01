@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 
 // Interface untuk data yayasan
 interface Foundation {
+  id : number;
   name: string;
   latitude: string;
   longitude: string;
@@ -15,6 +16,7 @@ interface Foundation {
 // Data dummy
 const dummyData: Foundation[] = [
   {
+    id: 1,
     name: "Yayasan Kasih Sayang",
     latitude: "-7.12345",
     longitude: "110.12345",
@@ -22,6 +24,7 @@ const dummyData: Foundation[] = [
     phone: "+6281234567890",
   },
   {
+    id: 2,
     name: "Yayasan Harapan Baru",
     latitude: "-7.54321",
     longitude: "110.54321",
@@ -29,6 +32,7 @@ const dummyData: Foundation[] = [
     phone: "+6289876543210",
   },
   {
+    id: 3,
     name: "Yayasan Sejahtera",
     latitude: "-7.67890",
     longitude: "110.67890",
@@ -100,6 +104,10 @@ export default function PageYayasan() {
     };
     fetchFoundations();
   }, [useApi]);
+
+  const handleDonasiButton = (id : number) => {
+    window.location.href = `/riwayat/${id}/status`;
+  }
 
   // Fungsi untuk filter berdasarkan pencarian
   const filteredFoundations = foundations.filter(
@@ -197,7 +205,7 @@ export default function PageYayasan() {
         ) : sortedFoundations.length > 0 ? (
           sortedFoundations.map((foundation, index) => (
             <div
-              key={index}
+              key={foundation.id}
               className="bg-white min-h-[248px] w-full drop-shadow-md p-8 rounded-2xl flex flex-col"
             >
               {/* Nama yayasan */}
@@ -224,7 +232,7 @@ export default function PageYayasan() {
                 </p>
               </div>
               <p>{foundation.address}</p>
-              <button className="text-white bg-[#F5B041] rounded-full px-2 py-0.5 ml-auto">
+              <button onClick={() => handleDonasiButton(foundation.id)} className="text-white bg-[#F5B041] rounded-full px-2 py-0.5 ml-auto cursor-pointer">
                 Donasi Sekarang
               </button>
             </div>
