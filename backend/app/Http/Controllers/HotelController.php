@@ -33,7 +33,7 @@ class HotelController extends Controller
      */
     public function index()
     {
-        $hotel = User::select('latitude', 'longitude', 'name', 'address')->get();
-        return ResponseHelper::send('Success retireve all hotel data', $hotel, 200);
+        $hotels = User::withCount('donations')->get();
+        return ResponseHelper::send('Success retrieve all hotel data', $hotels, 200);
     }
 }

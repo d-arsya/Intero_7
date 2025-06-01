@@ -12,4 +12,9 @@ class User extends Authenticatable
     use HasFactory, Notifiable, HasApiTokens;
     protected $guarded = [];
     protected $hidden = ['password', 'updated_at'];
+
+    public function donations()
+    {
+        return $this->hasMany(Donation::class);
+    }
 }

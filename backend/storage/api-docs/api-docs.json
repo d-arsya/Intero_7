@@ -264,6 +264,585 @@
                 }
             }
         },
+        "/donation": {
+            "get": {
+                "tags": [
+                    "Donations"
+                ],
+                "summary": "Get authenticated user's donation history",
+                "operationId": "fd0d793c85976d280ebcf4052b31b72a",
+                "responses": {
+                    "200": {
+                        "description": "Success retrieve donation history",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success retrieve donation history"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "foundation_id": {
+                                                        "type": "integer",
+                                                        "example": 2
+                                                    },
+                                                    "user_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "variant": {
+                                                        "type": "string",
+                                                        "example": "Makanan Kering"
+                                                    },
+                                                    "description": {
+                                                        "type": "string",
+                                                        "example": "Soto Sapi"
+                                                    },
+                                                    "take": {
+                                                        "type": "string",
+                                                        "format": "date",
+                                                        "example": "2025-06-01"
+                                                    },
+                                                    "time": {
+                                                        "type": "string",
+                                                        "example": "09.00 - 10.00"
+                                                    },
+                                                    "notes": {
+                                                        "type": "string",
+                                                        "example": "Catatan"
+                                                    },
+                                                    "portion": {
+                                                        "type": "integer",
+                                                        "example": 10
+                                                    },
+                                                    "status": {
+                                                        "type": "string",
+                                                        "example": "Diproses"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2025-06-01T16:09:12.000000Z"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2025-06-01T16:09:12.000000Z"
+                                                    },
+                                                    "foundation_name": {
+                                                        "type": "string",
+                                                        "example": "Yayasan Al Kahfi"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Donations"
+                ],
+                "summary": "Create a new donation",
+                "operationId": "5fea5c768e367cf0a4a137bd945c1539",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "foundation_id",
+                                    "variant",
+                                    "description",
+                                    "portion",
+                                    "take",
+                                    "time"
+                                ],
+                                "properties": {
+                                    "foundation_id": {
+                                        "type": "integer",
+                                        "example": 2
+                                    },
+                                    "variant": {
+                                        "type": "string",
+                                        "example": "Makanan Kering"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Soto Sapi"
+                                    },
+                                    "portion": {
+                                        "type": "integer",
+                                        "example": 10
+                                    },
+                                    "take": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2025-06-01"
+                                    },
+                                    "time": {
+                                        "type": "string",
+                                        "example": "09.00 - 10.00"
+                                    },
+                                    "notes": {
+                                        "type": "string",
+                                        "example": "Catatan opsional"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success create donation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 201
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success create donation"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 10
+                                                },
+                                                "foundation_id": {
+                                                    "type": "integer",
+                                                    "example": 2
+                                                },
+                                                "user_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "variant": {
+                                                    "type": "string",
+                                                    "example": "Makanan Kering"
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "example": "Soto Sapi"
+                                                },
+                                                "portion": {
+                                                    "type": "integer",
+                                                    "example": 10
+                                                },
+                                                "take": {
+                                                    "type": "string",
+                                                    "format": "date",
+                                                    "example": "2025-06-01"
+                                                },
+                                                "time": {
+                                                    "type": "string",
+                                                    "example": "09.00 - 10.00"
+                                                },
+                                                "notes": {
+                                                    "type": "string",
+                                                    "example": "Catatan"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-06-01T17:05:05.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-06-01T17:05:05.000000Z"
+                                                },
+                                                "foundation_name": {
+                                                    "type": "string",
+                                                    "example": "Yayasan Al Kahfi"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error or failure",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 400
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Your input is invalid"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/donation/{id}": {
+            "get": {
+                "tags": [
+                    "Donations"
+                ],
+                "summary": "Get donation details by ID",
+                "operationId": "a357db9594041101029d916cdcb9f4ee",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the donation",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 2
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success retrieve donation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success retrieve donation"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 2
+                                                },
+                                                "foundation_id": {
+                                                    "type": "integer",
+                                                    "example": 2
+                                                },
+                                                "user_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "variant": {
+                                                    "type": "string",
+                                                    "example": "Makanan Kering"
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "example": "Soto Sapi"
+                                                },
+                                                "portion": {
+                                                    "type": "integer",
+                                                    "example": 10
+                                                },
+                                                "take": {
+                                                    "type": "string",
+                                                    "format": "date",
+                                                    "example": "2025-06-01"
+                                                },
+                                                "time": {
+                                                    "type": "string",
+                                                    "example": "09.00 - 10.00"
+                                                },
+                                                "notes": {
+                                                    "type": "string",
+                                                    "example": "Catatan"
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "example": "Diterima"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-06-01T16:19:08.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-06-01T16:43:56.000000Z"
+                                                },
+                                                "foundation_name": {
+                                                    "type": "string",
+                                                    "example": "Yayasan Al Kahfi"
+                                                },
+                                                "hotel_name": {
+                                                    "type": "string",
+                                                    "example": "@HOM Premiere Timoho Jogjakarta"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Donation not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 404
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Donation not found"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": null
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Donations"
+                ],
+                "summary": "Update donation status",
+                "operationId": "efb0c49977b3187582ea058735141e64",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the donation",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 2
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "status"
+                                ],
+                                "properties": {
+                                    "status": {
+                                        "type": "string",
+                                        "enum": [
+                                            "Diproses",
+                                            "Dikirim",
+                                            "Diterima"
+                                        ],
+                                        "example": "Dikirim"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success update donation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success update donation"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 2
+                                                },
+                                                "foundation_id": {
+                                                    "type": "integer",
+                                                    "example": 2
+                                                },
+                                                "user_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "variant": {
+                                                    "type": "string",
+                                                    "example": "Makanan Kering"
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "example": "Soto Sapi"
+                                                },
+                                                "portion": {
+                                                    "type": "integer",
+                                                    "example": 10
+                                                },
+                                                "take": {
+                                                    "type": "string",
+                                                    "format": "date",
+                                                    "example": "2025-06-01"
+                                                },
+                                                "time": {
+                                                    "type": "string",
+                                                    "example": "09.00 - 10.00"
+                                                },
+                                                "notes": {
+                                                    "type": "string",
+                                                    "example": "Catatan"
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "example": "Dikirim"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-06-01T16:19:08.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-06-01T17:07:01.000000Z"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error or bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 400
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Your input is invalid"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": {
+                                                "status": [
+                                                    "The selected status is invalid."
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/foundations": {
             "get": {
                 "tags": [
@@ -442,6 +1021,10 @@
         {
             "name": "Auth",
             "description": "Auth"
+        },
+        {
+            "name": "Donations",
+            "description": "Donations"
         },
         {
             "name": "Foundation",

@@ -18,6 +18,6 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::put('profile', 'updateProfile');
     });
     Route::get('foundations', [FoundationController::class, 'index']);
-    Route::apiResource('donation', DonationController::class);
+    Route::apiResource('donation', DonationController::class)->except('destroy');
 });
 Route::get('hotels', [HotelController::class, 'index']);

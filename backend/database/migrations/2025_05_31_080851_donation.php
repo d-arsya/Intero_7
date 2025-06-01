@@ -16,8 +16,13 @@ return new class extends Migration
             $table->id();
             $table->integer('foundation_id');
             $table->foreignIdFor(User::class)->constrained()->onDelete('cascade');
+            $table->string('variant');
             $table->string('description');
+            $table->date('take');
+            $table->string('time');
+            $table->string('notes')->nullable();
             $table->integer('portion');
+            $table->enum('status', ['Diproses', 'Dikirim', 'Diterima'])->default('Diproses');
             $table->timestamps();
         });
     }
