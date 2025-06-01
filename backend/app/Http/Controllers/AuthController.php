@@ -20,7 +20,7 @@ class AuthController extends Controller
      *     @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(
-     *             required={"name", "email", "password"},
+     *             required={"name", "email", "password", "address", "phone", "latitude", "longitude"},
      *             @OA\Property(
      *                 property="name",
      *                 type="string",
@@ -39,6 +39,26 @@ class AuthController extends Controller
      *                 type="string",
      *                 format="password",
      *                 example="password123"
+     *             ),
+     *             @OA\Property(
+     *                 property="address",
+     *                 type="string",
+     *                 example="Jl. Kaliurang No. 7, Sleman"
+     *             ),
+     *             @OA\Property(
+     *                 property="phone",
+     *                 type="string",
+     *                 example="081234567890"
+     *             ),
+     *             @OA\Property(
+     *                 property="latitude",
+     *                 type="string",
+     *                 example="-7.782889"
+     *             ),
+     *             @OA\Property(
+     *                 property="longitude",
+     *                 type="string",
+     *                 example="110.408062"
      *             )
      *         )
      *     ),

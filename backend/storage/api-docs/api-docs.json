@@ -30,7 +30,11 @@
                                 "required": [
                                     "name",
                                     "email",
-                                    "password"
+                                    "password",
+                                    "address",
+                                    "phone",
+                                    "latitude",
+                                    "longitude"
                                 ],
                                 "properties": {
                                     "name": {
@@ -48,6 +52,22 @@
                                         "type": "string",
                                         "format": "password",
                                         "example": "password123"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "example": "Jl. Kaliurang No. 7, Sleman"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "081234567890"
+                                    },
+                                    "latitude": {
+                                        "type": "string",
+                                        "example": "-7.782889"
+                                    },
+                                    "longitude": {
+                                        "type": "string",
+                                        "example": "110.408062"
                                     }
                                 },
                                 "type": "object"
