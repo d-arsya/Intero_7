@@ -24,7 +24,7 @@ class UserController extends Controller
             'latitude' => ['string'],
             'longitude' => ['string'],
             'email' => ['string'],
-            'photo' => ['image', 'mimes:jpeg,png,jpg,svg,webp', 'max:2048']
+            'phone' => ['string'],
         ]);
 
         if ($validator->fails()) {
@@ -32,13 +32,6 @@ class UserController extends Controller
         }
         $user = User::find(Auth::user()->id);
         $data = $validator->validated();
-        if ($request->hasFile('photo')) {
-            if (str_starts_with($user->photo, 'https://intero-be.disyfa.cloud/storage/')) {
-                Storage::disk('public')->delete(str_replace('https://intero-be.disyfa.cloud/storage/', "", $user->photo));
-            }
-            $data['photo'] = Storage::disk('public')->put('user', $request->file('photo'));
-            $data['photo'] = 'https://intero-be.disyfa.cloud/storage/' . $data['photo'];
-        }
         $user->update($data);
         return ResponseHelper::send('Success update user profile', $user, 200);
     }

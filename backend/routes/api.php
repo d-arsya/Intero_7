@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DonationController;
 use App\Http\Controllers\FoundationController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\UserController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(AuthController::class)->group(function () {
@@ -18,5 +18,6 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::put('profile', 'updateProfile');
     });
     Route::get('foundations', [FoundationController::class, 'index']);
+    Route::apiResource('donation', DonationController::class);
 });
 Route::get('hotels', [HotelController::class, 'index']);

@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
                 $data["longitude"] = (str_starts_with($data[3], '-') ? '-' : '') . substr(ltrim($data[3], '-'), 0, 3) . '.' . substr(ltrim($data[3], '-'), 3);;
                 $data["name"] = $data[4];
                 $data["address"] = $data[0];
-                $data["photo"] = $data[1];
+                $data["phone"] = "6289636055420";
                 $data["password"] = $pass;
                 $data["email"] = "hotel$now@email.com";
                 $data["created_at"] = $date;

@@ -314,6 +314,10 @@
                                                     "phone": {
                                                         "type": "string",
                                                         "example": "+6281234567890"
+                                                    },
+                                                    "distance": {
+                                                        "type": "decimal",
+                                                        "example": "1.2"
                                                     }
                                                 },
                                                 "type": "object"
