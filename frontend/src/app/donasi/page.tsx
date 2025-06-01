@@ -349,10 +349,10 @@ export default function PageMakanan() {
               {/* Quote */}
               <div className="w-full h-[208px] flex flex-col bg-[#F5B041] mt-6 p-6 rounded-[12px]">
                 <p className="text-sm text-[#344C36]">
-                  "Setiap donasi makanan yang Anda berikan tidak hanya <br />
+                  &quot;Setiap donasi makanan yang Anda berikan tidak hanya <br />
                   menyelamatkan makanan dari pembuangan, tetapi juga <br />
                   memberikan harapan dan bantuan nyata bagi mereka <br />
-                  yang membutuhkan."
+                  yang membutuhkan.&quot;
                 </p>
                 <div className="flex flex-row mt-auto">
                   <div className="w-[15%] flex justify-center items-center">

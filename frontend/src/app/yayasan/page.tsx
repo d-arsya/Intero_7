@@ -203,7 +203,7 @@ export default function PageYayasan() {
             {error}
           </div>
         ) : sortedFoundations.length > 0 ? (
-          sortedFoundations.map((foundation, index) => (
+          sortedFoundations.map((foundation) => (
             <div
               key={foundation.id}
               className="bg-white min-h-[248px] w-full drop-shadow-md p-8 rounded-2xl flex flex-col"
