@@ -59,6 +59,7 @@ export default function PageMitra() {
           setHotels(dummyData);
         }
       } catch (err) {
+        console.log(err)
         setError("Terjadi kesalahan saat mengambil data, menggunakan data dummy");
         setHotels(dummyData);
       } finally {

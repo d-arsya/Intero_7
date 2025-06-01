@@ -91,6 +91,7 @@ export default function PageYayasan() {
           setFoundations(dummyData);
         }
       } catch (err) {
+        console.log(err)
         setError("Terjadi kesalahan saat mengambil data, menggunakan data dummy");
         setFoundations(dummyData);
       } finally {
