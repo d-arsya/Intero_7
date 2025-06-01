@@ -10,12 +10,11 @@ export default function PageMakanan() {
 
   // State untuk form data
   const [formData, setFormData] = useState({
-    foodType: '',
+    variant: '',
     description: '',
-    portions: '',
-    pickupDate: '',
-    pickupTime: '',
-    pickupAddress: '',
+    portion: '',
+    take: '',
+    time: '',
     notes: '',
   });
 
@@ -32,67 +31,48 @@ export default function PageMakanan() {
     e.preventDefault();
 
     // Validasi sederhana
-    if (!formData.foodType || !formData.description || !formData.portions || !formData.pickupDate || !formData.pickupTime || !formData.pickupAddress) {
+    if (!formData.variant || !formData.description || !formData.portion || !formData.take || !formData.time) {
       alert('Harap isi semua kolom wajib!');
       return;
     }
 
     // Buat query string dari form data
     const query = new URLSearchParams({
-      foodType: formData.foodType,
+      variant: formData.variant,
       description: formData.description,
-      portions: formData.portions,
-      pickupDate: formData.pickupDate,
-      pickupTime: formData.pickupTime,
-      pickupAddress: formData.pickupAddress,
+      portion: formData.portion,
+      take: formData.take,
+      time: formData.time,
       notes: formData.notes || '',
     }).toString();
-
-    // Redirect ke /yayasan dengan query string
     router.push(`/yayasan?${query}`);
-
-    // Opsional: Kirim data ke API (jika ada endpoint)
-    /*
-    try {
-      const response = await fetch('https://your-api/donations', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-      if (response.ok) {
-        router.push(`/yayasan?${query}`);
-      } else {
-        alert('Gagal mengirim donasi. Silakan coba lagi.');
-      }
-    } catch (err) {
-      alert('Terjadi kesalahan. Silakan coba lagi.');
-    }
-    */
   };
+  const timeSlots = Array.from({ length: 15 }, (_, i) => {
+    const startHour = 7 + i * 1;
+    const endHour = startHour + 1;
+    const pad = (n: number) => String(n).padStart(2, "0");
+    return {
+      value: `${pad(startHour)}:00-${pad(endHour)}:00`,
+      label: `${pad(startHour)}:00 - ${pad(endHour)}:00`
+    };
+  });
 
   return (
     <div className="w-full h-full flex flex-col mb-16 mt-8">
-      {/* Title */}
       <h1 className="font-bold text-[#1F2937] text-4xl mx-auto mt-2">
         Donasi Sekarang
       </h1>
 
       <div className="border-t-4 w-[80px] mx-auto border-[#F5B041] mt-4"></div>
-
-      {/* Text below title */}
       <h2 className="text-lg font-normal opacity-80 text-[#1F2937] mx-auto mt-5">
         Pilih jenis donasi yang ingin Anda berikan untuk mendukung misi kami
         dalam <br /> mengurangi limbah makanan dan membantu masyarakat yang
         membutuhkan.
       </h2>
-
-      {/* Split into 2 part container */}
       <div className="grid grid-cols-2 gap-x-14 mt-10">
-        {/* Left side */}
         <div className="bg-white rounded-2xl p-7 shadow-xl">
           {isShowingDonasiMakanan && (
             <>
-              {/* Instruksi */}
               <div className="w-full rounded-[8px] p-6 bg-[#E9EBE9] mt-5">
                 <div className="flex flex-row gap-x-2 pl-1">
                   <Info color="#009CA6" />
@@ -113,7 +93,6 @@ export default function PageMakanan() {
                   <p>Dalam kemasan yang baik</p>
                 </div>
               </div>
-              {/* Start of form */}
               <form onSubmit={handleSubmit} className="w-full mt-6">
                 {/* Jenis makanan */}
                 <div className="flex flex-col gap-y-2">
@@ -121,22 +100,22 @@ export default function PageMakanan() {
                     Jenis Makanan
                   </label>
                   <select
-                    name="foodType"
+                    name="variant"
                     id="jenis-makanan"
                     className="border bg-white border-[#D1D5DB] h-[48px] rounded-[8px] px-2"
-                    value={formData.foodType}
+                    value={formData.variant}
                     onChange={handleInputChange}
                   >
                     <option value="" disabled>
                       Pilih jenis makanan
                     </option>
-                    <option value="makanan-siap-saji">Makanan siap saji</option>
-                    <option value="opsi2">Opsi 2</option>
-                    <option value="opsi3">Opsi 3</option>
-                    <option value="opsi4">Opsi 4</option>
+                    <option value="Makanan Siap Saji">Makanan Siap Saji</option>
+                    <option value="Bahan Mentah">Bahan Mentah</option>
+                    <option value="Makanan Beku">Makanan Beku</option>
+                    <option value="Makanan Kering">Makanan Kering</option>
+                    <option value="Minuman">Minuman</option>
                   </select>
                 </div>
-                {/* Deskripsi makanan */}
                 <div className="flex flex-col gap-y-2 mt-4">
                   <label htmlFor="deskripsi-makanan" className="font-medium">
                     Deskripsi Makanan
@@ -157,11 +136,11 @@ export default function PageMakanan() {
                   </label>
                   <input
                     type="number"
-                    name="portions"
+                    name="portion"
                     id="jumlah-porsi"
                     min={1}
                     className="w-full bg-white border border-[#D1D5DB] h-[50px] rounded-[8px] resize-none p-2"
-                    value={formData.portions}
+                    value={formData.portion}
                     onChange={handleInputChange}
                   />
                 </div>
@@ -172,10 +151,10 @@ export default function PageMakanan() {
                   </label>
                   <input
                     type="date"
-                    name="pickupDate"
+                    name="take"
                     id="tgl-pengambilan"
                     className="w-full bg-white border border-[#D1D5DB] h-[50px] rounded-[8px] resize-none p-2"
-                    value={formData.pickupDate}
+                    value={formData.take}
                     onChange={handleInputChange}
                   />
                 </div>
@@ -185,34 +164,23 @@ export default function PageMakanan() {
                     Waktu Pengambilan
                   </label>
                   <select
-                    name="pickupTime"
+                    name="time"
                     id="waktu-pengambilan"
                     className="border bg-white border-[#D1D5DB] h-[48px] rounded-[8px] px-2"
-                    value={formData.pickupTime}
+                    value={formData.time}
                     onChange={handleInputChange}
                   >
                     <option value="" disabled>
                       Pilih waktu pengambilan
                     </option>
-                    <option value="09:00-11:00">09:00 - 11:00</option>
-                    <option value="opsi2">Opsi 2</option>
-                    <option value="opsi3">Opsi 3</option>
-                    <option value="opsi4">Opsi 4</option>
+                    {timeSlots.map((slot, index) => (
+                      <option key={index} value={slot.value}>
+                        {slot.label}
+                      </option>
+                    ))}
                   </select>
                 </div>
-                {/* Alamat pengambilan */}
-                <div className="flex flex-col gap-y-2 mt-4">
-                  <label htmlFor="alamat-pengambilan" className="font-medium">
-                    Alamat Pengambilan
-                  </label>
-                  <textarea
-                    className="w-full bg-white border border-[#D1D5DB] h-[98px] rounded-[8px] resize-none p-2"
-                    id="alamat-pengambilan"
-                    name="pickupAddress"
-                    value={formData.pickupAddress}
-                    onChange={handleInputChange}
-                  ></textarea>
-                </div>
+
                 {/* Catatan tambahan opsional */}
                 <div className="flex flex-col gap-y-2 mt-4">
                   <label htmlFor="catatan-tambahan" className="font-medium">

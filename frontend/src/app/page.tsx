@@ -10,8 +10,7 @@ export default function Login() {
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setError(null); // Reset error sebelum mencoba login
-    console.log(email,password)
+    setError(null);
 
     try {
       const response = await fetch("https://intero-be.disyfa.cloud/api/login", {
@@ -21,18 +20,15 @@ export default function Login() {
       });
 
       const data = await response.json();
-      console.log("API Response:", JSON.stringify(data, null, 2));
 
       if (response.ok && data.data?.token) {
         document.cookie = `token=${data.data.token}; path=/; max-age=86400; SameSite = Strict`;
-        console.log("Cookie set:", document.cookie);
         window.location.href = "/donasi";
       } else {
         setError(data.message || "Login gagal. Periksa email dan password Anda.");
       }
     } catch (err) {
-      console.error("Login error:", err);
-      setError("Terjadi kesalahan. Silakan coba lagi.");
+      setError("Terjadi kesalahan. Silakan coba lagi. : " + err);
     }
   };
 

@@ -35,9 +35,8 @@ export const metadata: Metadata = {
 };
 
 const guestLinks = [
-  { label: 'Mitra', href: 'mitra' },
-  { label: 'Riwayat', href: 'riwayat' },
-  { label: 'Kontak', href: '#kontak' },
+  { label: 'Mitra', href: '/mitra' },
+  { label: 'Riwayat', href: '/riwayat' }
 ];
 
 export default function RootLayout({
