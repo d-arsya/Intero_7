@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Instagram, Linkedin, Music2, MapPin, Phone, Mail } from 'lucide-react';
 export function Footer() {
     return (
-        <footer className='bg-tosca px-6 md:px-32 py-12 text-white'>
+        <footer className='bg-[#344C36] px-6 md:px-32 py-12 text-white'>
             <nav className="flex md:flex-row flex-col gap-y-4 justify-between">
                 <div className='md:max-w-1/4'>
                     <Link href="/" className='flex items-center gap-x-2'>
@@ -22,42 +22,6 @@ export function Footer() {
                             <Music2 size='20' />
                         </Link>
                     </div>
-                </div>
-                <div>
-                    <p className='font-bold text-xl'>Program</p>
-                    <nav className='flex flex-col gap-y-2 mt-4'>
-                        <Link href="/penyelamatan">
-                            Penyelamatan
-                        </Link>
-                        <Link href="/distribusi">
-                            Distribusi Makanan
-                        </Link>
-                        <Link href="/edukasi">
-                            Edukasi Masyarakat
-                        </Link>
-                        <Link href="/">
-                            Pelatihan Relawan
-                        </Link>
-
-                    </nav>
-                </div>
-                <div>
-                    <p className='font-bold text-xl'>Terlibat</p>
-                    <nav className='flex flex-col gap-y-2 mt-4'>
-                        <Link href="/donasi">
-                            Donasi
-                        </Link>
-                        <Link href="/gabung/relawan">
-                            Menjadi Relawan
-                        </Link>
-                        <Link href="/gabung/mitra">
-                            Menjadi Mitra
-                        </Link>
-                        <Link href="/">
-                            Acara Mendatang
-                        </Link>
-
-                    </nav>
                 </div>
                 <div className='md:max-w-1/4'>
                     <p className='font-bold text-xl'>Kontak</p>
