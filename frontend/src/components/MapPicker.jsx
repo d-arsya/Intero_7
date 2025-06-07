@@ -6,9 +6,10 @@ import L from 'leaflet';
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl: '/leaflet/marker-icon-2x.png',
+  // iconRetinaUrl: '/leaflet/marker-icon-2x.png',
+  iconRetinaUrl: '/leaflet/Mark.png',
   iconUrl: '/leaflet/Mark.svg',
-  shadowUrl: '/leaflet/marker-shadow.png',
+  // shadowUrl: '/leaflet/marker-shadow.png',
 });
 
 function LocationMarker({ setPosition }) {
